@@ -36,3 +36,13 @@ config t
  end
 show ip int br
 ~~~
+
+
+
+### Exercise 01 - Create an ACL policy named, ACL-POL1
+Open the following ports:
+| Web            | Ports           |
+| ---            | ---             |
+| www.web310.com | HTTPS, SSH, FTP |
+| www.web311.com | PING, DNS       |
+
