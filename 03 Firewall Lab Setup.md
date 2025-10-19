@@ -1,4 +1,4 @@
-
+~~~
 !@UTM-PH
 config t
  hostname UTM-PH
@@ -33,3 +33,5 @@ config t
  ip route 0.0.0.0 0.0.0.0 208.8.8.2
  ip domain lookup
  end
+show ip int br
+~~~
