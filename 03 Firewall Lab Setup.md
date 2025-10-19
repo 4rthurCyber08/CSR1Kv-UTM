@@ -190,6 +190,11 @@ Also, ping the following domain names, both should reply.
 
 ### 12. Verification
 Verify the open ports of both websites through nmap.
+~~~
+!@cmd
+nmap -v www.web310.com
+nmap -v www.web311.com
+~~~
 
 <br>
 
