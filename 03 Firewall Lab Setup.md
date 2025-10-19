@@ -101,17 +101,14 @@ Confirm the setup by selecting `OK` __[16]__
 ---
 &nbsp;
 
+### 10. Configure CSR1000v
+When CSR1000v finish loading, it typically has a lot of logs on screen, make sure to enter the VM then enter `enable` __[17]__ to gain access to privilege mode.  
 
-
-
-
-
-
-
+Now simply copy the following script:
 ~~~
-!@UTM-PH
+!@UTM-1
 config t
- hostname UTM-PH
+ hostname UTM-1
  enable secret pass
  service password-encryption
  no logging cons
@@ -146,6 +143,44 @@ config t
  end
 show ip int br
 ~~~
+
+<br>
+
+Then, back to VMWare, select `Edit` __[18]__ > `Paste` __[19]__
+
+<br>
+
+![10-FW](<img/00 CSR-10.png>)
+
+&nbsp;
+---
+&nbsp;
+
+### 11. Verify IP Address
+Check the IP address of UTM-1 on its GigabitEthernet2 interface. It should be `192.168.102.11` __[20]__
+
+> [!NOTE]
+> If the status of the interface is down, simply enter the `show ip int brief` command again.
+
+<br>
+
+![11-FW](<img/00 CSR-11.png>)
+
+<br>
+
+On CMD, ping the IP address `192.168.102.11` __[21]__ to see if it's replying. If so access the UTM-1's GUI.
+
+<br>
+
+https://192.168.102.11/
+
+&nbsp;
+---
+&nbsp;
+
+
+
+
 
 
 
