@@ -6,6 +6,7 @@ config t
  service password-encryption
  no logging cons
  line vty 0 14
+  transport input all
   password pass
   login local
   exec-timeout 0 0
