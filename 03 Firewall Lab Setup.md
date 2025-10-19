@@ -308,7 +308,7 @@ Modify the ACL:
 <br>
 
 __Rules__
-- Sequence: 1
+- Sequence: `1` __[40]__
 - Source Type: `any` __[41]__
 - Destination Type: `Host` __[42]__
 - Host Name*: `www.web310.com`
