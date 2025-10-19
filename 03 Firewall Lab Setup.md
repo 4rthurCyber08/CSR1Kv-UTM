@@ -242,13 +242,141 @@ Then, simply ignore the warning, select `Advance...` __[30]__ > `Accept the Risk
 ---
 &nbsp;
 
+### 16. Login to the GUI
+Username: `admin` __[32]__
+Password: `pass` __[33]__
 
+<br>
 
+Then, `Log In` __[34]__
 
-### Exercise 01 - Create an ACL policy named, ACL-POL1
+<br>
+
+![18-FW](<img/00 CSR-18.png>)
+
+<br>
+<br>
+
+---
+&nbsp;
+
+### 🎯 Exercise 01 - Create an ACL policy named, ACL-POL1
 Open the following ports:
 | Web            | Ports           |
 | ---            | ---             |
 | www.web310.com | HTTPS, SSH, FTP |
 | www.web311.com | PING, DNS       |
 
+<br>
+
+- Have a Sequence difference of `5`
+
+&nbsp;
+---
+&nbsp;
+
+### How to create a rule to open 443 for www.web310.com
+On the CSR1000V dashboard, go to `Configuration` __[35]__ > `ACL` __[36]__
+
+<br>
+
+![19-FW](<img/00 CSR-19.png>)
+
+&nbsp;
+---
+&nbsp;
+
+On the ACL page, select `+ Add` __[37]__  
+
+<br>
+
+![20-FW](<img/00 CSR-20.png>)
+
+&nbsp;
+---
+&nbsp;
+
+Modify the ACL:
+- ACL Name: `ACL-POL1` __[38]__
+- ACL Type: `IPv4 Extended` __[39]__
+
+<br>
+
+__Rules__
+- Sequence: 1
+- Source Type: `any` __[41]__
+- Destination Type: `Host` __[42]__
+- Host Name*: `www.web310.com`
+- Protocol: `TCP`  __[43]__
+- Source Port: `None` __[44]__
+- Destination Port: `eq` __[45]__
+- Select Port*: `443` __[46]__
+
+<br>
+
+`+ Add` __[47]__ the rule to the ACL
+
+<br>
+
+![21-FW](<img/00 CSR-21.png>)
+
+&nbsp;
+---
+&nbsp;
+
+### How to allow ping for www.web311.com
+Select the Destination Host as, `www.web311.com` __[49]__  
+Then, add another rule, simply select the Protocol as `ICMP` __[48]__.
+
+<br>
+
+Then simply `+ Add`
+
+![22-FW](<img/00 CSR-22.png>)
+
+&nbsp;
+---
+&nbsp;
+
+### Expected output
+Once you configured the necessary rules the output should look as follows.
+
+<br>
+
+Once completed, `Apply to Device` __[50]__
+
+![23-FW](<img/00 CSR-23.png>)
+
+&nbsp;
+---
+&nbsp;
+
+### How to assign the ACL to an interface
+Once the ACL has been created, select `Associate Interfaces` __[51]__
+
+<br>
+
+![24-FW](<img/00 CSR-24.png>)
+
+&nbsp;
+---
+&nbsp;
+
+### Associate Interfaces
+We will attach this ACL to `GigabitEthernet3` __[52]__. Then, set the IPv4 Inbound ACL `ACL-POL1` __[53]__.
+
+<br>
+
+Finally, `Apply to Device` __[54]__
+
+<br>
+
+![25-FW](<img/00 CSR-25.png>)
+
+### Verify the Configuration
+NMAP & Ping both websites to see if the configurations are correct.
+
+
+<br>
+
+![26-FW](<img/00 CSR-26.png>)
