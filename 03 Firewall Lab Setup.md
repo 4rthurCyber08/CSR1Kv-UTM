@@ -168,18 +168,79 @@ Check the IP address of UTM-1 on its GigabitEthernet2 interface. It should be `1
 
 <br>
 
-On CMD, ping the IP address `192.168.102.11` __[21]__ to see if it's replying. If so access the UTM-1's GUI.
+On CMD, ping the IP address `192.168.102.11` __[21]__ to see if it's replying. 
 
 <br>
 
-https://192.168.102.11/
+![12-FW](<img/00 CSR-12.png>)
+
+<br>
+
+Also, ping the following domain names, both should reply.
+- `www.web310.com` __[22]__
+- `www.web311.com` __[23]__
+
+<br>
+
+![13-FW](<img/00 CSR-13.png>)
 
 &nbsp;
 ---
 &nbsp;
 
+### 12. Verification
+Verify the open ports of both websites through nmap.
 
+<br>
 
+![14-FW](<img/00 CSR-14.png>)
+
+&nbsp;
+---
+&nbsp;
+
+### 13. Remote Access UTM-1
+Go to SecureCRT then `telnet` __[24]__ `192.168.102.11` __[25]__. Then, `Connect` __[26]__
+
+<br>
+
+![15-FW](<img/00 CSR-15.png>)
+
+&nbsp;
+---
+&nbsp;
+
+### 14. Verify Internet access
+Ping `8.8.8.8` __[27]__  
+Ping `www.rivanit.com` __[28]__
+
+<br>
+
+Both should be pingable
+
+<br>
+
+![16-FW](<img/00 CSR-16.png>)
+
+&nbsp;
+---
+&nbsp;
+
+### 15. Access the GUI
+On a browser, access the IP:
+`https://192.168.102.11/` __[29]__  
+
+<br>
+
+Then, simply ignore the warning, select `Advance...` __[30]__ > `Accept the Risk and Continue` __[31]__
+
+<br>
+
+![17-FW](<img/00 CSR-17.png>)
+
+&nbsp;
+---
+&nbsp;
 
 
 
